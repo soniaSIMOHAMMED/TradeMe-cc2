@@ -1,10 +1,5 @@
 package TradeMe.application;
 
-import TradeMe.domain.Location;
-import TradeMe.domain.User;
-
-import java.util.Scanner;
-
 public class Registration {
 
 

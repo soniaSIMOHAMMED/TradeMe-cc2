@@ -2,12 +2,12 @@ package TradeMe.domain;
 
 import java.util.Objects;
 
-public class Location {
+public final class Address {
     private  String number;
     private  String street;
     private  String city;
 
-    public Location(String number, String street, String city) {
+    public Address(String number, String street, String city) {
         this.number = number;
         this.street = Objects.requireNonNull(street);
         this.city = Objects.requireNonNull(city);

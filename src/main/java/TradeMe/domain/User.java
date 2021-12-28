@@ -1,35 +1,35 @@
 package TradeMe.domain;
 
+import TradeMe.kernel.Entity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import java.util.Objects;
 
-public class User{
+public final class User implements Entity<Id> {
     @JsonIgnore
     private Id id;
 
     private  String lastname;
     private  String firstname;
     private  int age;
-    //private Location location;
     private  String email;
     private String password;
+    private Address address;
 
-    public User(Id id, String lastname, String firstname, int age, String email, String password/*, Location location*/){
+    public User(Id id, String lastname, String firstname, int age, String email, String password,Address address){
         this.id = Objects.requireNonNull(id);
         this.lastname = Objects.requireNonNull(lastname);
         this.firstname = Objects.requireNonNull(firstname);
         this.age = age;
-        //this.location = location;
+        this.address = address;
         this.email = email;
         this.password = password;
     }
 
-    public User(){
-
+    @Override
+    public Id id() {
+        return this.id;
     }
-
-    public Id getUserId() {return id;}
 
     public String getLastname() {
         return lastname;
@@ -69,10 +69,7 @@ public class User{
         this.age = age;
     }
 
-    /*public void setLocation(Location location) {
-        this.location = location;
-    }*/
-
+    public void setAddress(Address address) {this.address = address;}
 
     public void setEmail(String email) {
         this.email = email;
@@ -84,6 +81,15 @@ public class User{
 
     public void changePassword(String newPassword) {
         this.password = Objects.requireNonNull(newPassword);
+    }
+
+    public void changeAddress(Address address) {
+        this.address = address;
+    }
+
+
+    public Id getId() {
+        return id;
     }
 }
 

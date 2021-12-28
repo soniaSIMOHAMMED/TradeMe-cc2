@@ -6,13 +6,14 @@ public interface UserRepository {
 
     void save(User user);
 
-    User byId(Id userId);
+    User byId(Id id);
 
     void addUser(User user);
 
-    void removeUser(Id userId);
+    void removeUser(Id id);
 
     Id nextIdentity();
 
     List<User> findAll();
+
 }

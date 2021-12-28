@@ -21,15 +21,15 @@ public class SimpleUserService implements UserService {
     }
 
     @Override
-    public void changePassword(Id UserId, String newPassword) {
-        var user = this.userRepository.byId(UserId);
+    public void changePassword(Id Id, String newPassword) {
+        var user = this.userRepository.byId(Id);
         user.changePassword(newPassword);
         this.userRepository.save(user);
     }
 
     @Override
-    public User getUserById(Id userId){
-        return this.userRepository.byId(userId);
+    public User getUserById(Id id){
+        return this.userRepository.byId(id);
     }
 
     @Override
@@ -38,9 +38,9 @@ public class SimpleUserService implements UserService {
     }
 
     @Override
-    public void removeUser(Id userId)
+    public void removeUser(Id id)
     {
-        this.userRepository.removeUser(userId);
+        this.userRepository.removeUser(id);
     }
     @Override
     public List<User> all() {

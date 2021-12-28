@@ -2,7 +2,7 @@ package TradeMe.domain;
 
 import java.util.List;
 
-public class Contractor extends User {
+public final class Contractor{
 
  /*   private final List<Project> projects;
 

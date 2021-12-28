@@ -2,10 +2,9 @@ package TradeMe.domain;
 
 import TradeMe.kernel.ValueObjectID;
 
-import javax.validation.constraints.NotNull;
 import java.util.Objects;
 
-public class Id implements ValueObjectID {
+public final class Id implements ValueObjectID {
 
     private int value;
 

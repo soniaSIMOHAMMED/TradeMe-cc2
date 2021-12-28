@@ -18,26 +18,26 @@ public class InMemoryUserRepository implements UserRepository {
 
     @Override
     public void save(User user) {
-        data.put(user.getUserId(), user);
+        data.put(user.Id(), user);
     }
 
     @Override
-    public User byId(Id userId) {
-        final User user = data.get(userId);
+    public User byId(Id id) {
+        final User user = data.get(id);
         if (user == null) {
-            throw new RuntimeException("No member for " + userId.getValue());
+            throw new RuntimeException("No member for " + id.getValue());
         }
         return user;
     }
 
     @Override
     public void addUser(User user){
-        this.data.put(user.getUserId(),user);
+        this.data.put(user.Id(),user);
     }
 
     @Override
-    public void removeUser(Id userId){
-        this.data.remove(userId);
+    public void removeUser(Id id){
+        this.data.remove(id);
     }
 
     @Override

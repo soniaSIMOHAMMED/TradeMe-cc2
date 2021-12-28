@@ -2,21 +2,21 @@ package TradeMe.domain;
 
 import java.util.List;
 
-public class Project {
+public final class Project {
 
     private final Id projectId;
     private final List<String> requiredSkills;
     private final List<Object> requiredTrades;
-    private final Location location;
+    private final Address address;
     private final int dailyRate;
     private final int periodOfEngagement;
 
 
-    public Project(Id projectId, List<String> requiredSkills, List<Object> requiredTrades, Location location, int dailyRate, int periodOfEngagement) {
+    public Project(Id projectId, List<String> requiredSkills, List<Object> requiredTrades, Address address, int dailyRate, int periodOfEngagement) {
         this.projectId = projectId;
         this.requiredSkills = requiredSkills;
         this.requiredTrades = requiredTrades;
-        this.location = location;
+        this.address = address;
         this.dailyRate = dailyRate;
         this.periodOfEngagement = periodOfEngagement;
     }
@@ -25,8 +25,8 @@ public class Project {
         return projectId;
     }
 
-    public Location getLocalisation() {
-        return location;
+    public Address getLocalisation() {
+        return address;
     }
 
     public int getDailyRate() {
@@ -51,7 +51,7 @@ public class Project {
                 "projectId=" + projectId +
                 ", requiredSkills=" + requiredSkills +
                 ", requiredTrades=" + requiredTrades +
-                ", localisation=" + location +
+                ", localisation=" + address +
                 ", dailyRate=" + dailyRate +
                 ", periodOfEngagement=" + periodOfEngagement +
                 '}';

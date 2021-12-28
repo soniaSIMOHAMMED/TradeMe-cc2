@@ -8,10 +8,10 @@ import java.util.List;
 public interface UserService {
 
      void create(User user);
-     void changePassword(Id UserId, String newPassword);
-     User getUserById(Id userId);
+     void changePassword(Id Id, String newPassword);
+     User getUserById(Id id);
      void addUser(User user);
-     void removeUser(Id userId);
+     void removeUser(Id id);
      List<User> all();
 
 }

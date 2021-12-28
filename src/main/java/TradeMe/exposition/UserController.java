@@ -3,17 +3,13 @@ package TradeMe.exposition;
 import TradeMe.domain.Id;
 import TradeMe.domain.User;
 import TradeMe.services.UserService;
-import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.net.URI;
-import java.text.ParseException;
 import java.util.List;
 
 @SuppressWarnings("unused")

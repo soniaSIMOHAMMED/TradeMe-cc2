@@ -3,7 +3,7 @@ package TradeMe.domain;
 import java.util.HashMap;
 import java.util.List;
 
-public class tradesman extends User {
+public final class tradesman {
 
    /* private final Trade trade;
     private final List<String> skills;

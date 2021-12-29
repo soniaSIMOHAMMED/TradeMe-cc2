@@ -2,7 +2,7 @@ package TradeMe.domain;
 
 import java.util.Objects;
 
-public final class Address {
+public class Address {
     private  String number;
     private  String street;
     private  String city;

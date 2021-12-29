@@ -1,19 +1,18 @@
 package TradeMe.domain;
 
+import TradeMe.exposition.UserDTO;
+
 import java.util.List;
 
 public interface UserRepository {
 
-    void save(User user);
-
-    User byId(Id id);
-
-    void addUser(User user);
-
-    void removeUser(Id id);
-
+    void save(UserDTO user);
+    void deleteUser(Id userId);
+    UserDTO findUserById(Id userId);
+    List<UserDTO> findAll();
+    List<UserDTO> findByCity(String city);
     Id nextIdentity();
 
-    List<User> findAll();
+
 
 }

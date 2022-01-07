@@ -16,4 +16,5 @@ public interface UserRepository {
     void addUser(UserDTO user);
     void changePaymentMethod(PaymentMethodDTO payment);
     void pay(PaymentMethodDTO payment, double amount);
+    boolean checkIdentity(Id userId, String email, String password);
 }

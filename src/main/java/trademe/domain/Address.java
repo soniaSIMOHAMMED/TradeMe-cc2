@@ -13,6 +13,10 @@ public final class Address {
         this.city = Objects.requireNonNull(city);
     }
 
+    public static Address of(String number, String street, String city){
+        return new Address(number,street,city);
+    }
+
     public String getNumber() {
         return number;
     }

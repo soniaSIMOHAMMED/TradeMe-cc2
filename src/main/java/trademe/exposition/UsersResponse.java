@@ -7,7 +7,6 @@ import java.util.List;
 @XmlRootElement
 public final class UsersResponse {
     public final List<UserDTO> users;
-
     public UsersResponse(List<UserDTO> users) {
         this.users = users;
     }

@@ -5,51 +5,51 @@ import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public final class User {
-    private Pattern pattern;
+public class User {
+
     private Id userId;
     private  String lastname;
     private  String firstname;
     private  int age;
     private Address address;
+    private String phoneNumber;
     private  String email;
     private String password;
     private Trade trade;
 
-    public User(Id userId, String lastname, String firstname, int age, Address address, String email, String password){
+    public User(Id userId, String lastname, String firstname, int age, Address address, String phoneNumber, String email, String password){
         this.userId = Objects.requireNonNull(userId);
         this.lastname = Objects.requireNonNull(lastname);
         this.firstname = Objects.requireNonNull(firstname);
-        this.age = age;
-        this.address = address;
-        this.email = email;
-        this.password = password;
+        this.age = Objects.requireNonNull(age);
+        this.address = Objects.requireNonNull(address);
+        this.phoneNumber = phoneNumber;
+        this.email = Objects.requireNonNull(email);
+        this.password = Objects.requireNonNull(password);
     }
 
-    public User(Id userId, String lastname, String firstname, int age, Address address, String email, String password,Trade trade){
+    public User(Id userId, String lastname, String firstname, int age, Address address, String phoneNumber, String email, String password, Trade trade){
         this.userId = Objects.requireNonNull(userId);
         this.lastname = Objects.requireNonNull(lastname);
         this.firstname = Objects.requireNonNull(firstname);
         this.age = age;
         this.address = address;
+        this.phoneNumber = phoneNumber;
         this.email = email;
         this.password = password;
         this.trade = trade;
     }
 
 
-    public static User of(Id id, String lastname, String firstname, int age, Address address, String email, String password){
-        return new User(id,lastname,firstname,age,address,email,password);
+    public static User of(Id id, String lastname, String firstname, int age, Address address, String phoneNumber, String email, String password){
+        return new User(id,lastname,firstname,age,address, phoneNumber, email,password);
     }
 
     public Id getUserId() {return userId;}
     public String getLastname() {
         return lastname;
     }
-    /*@Override
-    public Id id(){
-        return userId;
-    }*/
+
     public void setTrade(String job){
         if(job== "Electrician"){this.trade = Trade.ELECTRICIAN;}
         if(job== "Mason"){this.trade = Trade.MASON;}
@@ -104,45 +104,18 @@ public final class User {
     public void changePassword(String newPassword) {this.password = Objects.requireNonNull(newPassword);}
     public void changeAddress(Address newAddress) {this.address = Objects.requireNonNull(newAddress);}
 
-    private static final String EMAIL_REGEX = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
-            + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
-
-
-
-    public String checkAge(){
-        return age>=18 ? "" : " * Your age doesn't allow you to be a Tradesman/Contractor :( ";
-    }
-
-    public String checkEmail(){
-        boolean doesMatch;
-        Matcher matcher;
-        matcher = pattern.matcher(this.email);
-        doesMatch = matcher.matches();
-
-        return doesMatch ? "" : " * Please insert a valid Email ! ";
-
-    }
-
-
-    public boolean VerifyApplication(){
-
-        String checkAge = checkAge();
-        String checkEmail = checkEmail();
-        return ((checkAge=="") && (checkEmail==""));
-
-    }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
-        return age == user.age && Objects.equals(userId, user.userId) && Objects.equals(lastname, user.lastname) && Objects.equals(firstname, user.firstname) && Objects.equals(address, user.address) && Objects.equals(email, user.email) && Objects.equals(password, user.password);
+        return age == user.age && Objects.equals(userId, user.userId) && Objects.equals(lastname, user.lastname) && Objects.equals(firstname, user.firstname) && Objects.equals(address, user.address) && Objects.equals(phoneNumber, user.phoneNumber) && Objects.equals(email, user.email) && Objects.equals(password, user.password) && trade == user.trade;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(userId, lastname, firstname, age, address, email, password);
+        return Objects.hash(userId, lastname, firstname, age, address, phoneNumber, email, password, trade);
     }
 
     @Override
@@ -153,8 +126,10 @@ public final class User {
                 ", firstname='" + firstname + '\'' +
                 ", age=" + age +
                 ", address=" + address +
+                ", phoneNumber='" + phoneNumber + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
+                ", trade=" + trade +
                 '}';
     }
 }

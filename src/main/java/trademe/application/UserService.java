@@ -13,7 +13,8 @@ public interface UserService {
      List<UserDTO> findAll();
      List<UserDTO> findByCity(String city);
 
-    void addUser(UserDTO user);
+     void addUser(UserDTO user);
+     boolean checkIdentity(Id userId, String email, String password);
 
     //void changePassword(Id UserId, String newPassword);
 

@@ -14,4 +14,6 @@ public enum Trade {
         return  this.job ;
     }
 
+
+
 }

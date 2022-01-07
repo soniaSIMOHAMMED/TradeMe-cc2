@@ -1,34 +1,34 @@
 package trademe.domain;
 
 import java.util.List;
+import java.util.Objects;
 
-public final class Contractor{
+public final class Contractor extends User{
 
-    private List<Project> projects;
-    private Id userId;
-    private  String lastname;
-    private  String firstname;
-    private  int age;
-    private Address address;
-    private  String email;
-    private String password;
-    public Contractor(Id id){
-        this.userId=id;
-    }
+    private final List<Project> projects;
 
-    public Contractor(List<Project> projects, Id userId, String lastname, String firstname, int age, Address address, String email, String password) {
+    public Contractor(Id userId, String lastname, String firstname, int age, Address address, String phoneNumber, String email, String password,List<Project> projects) {
+        super(userId,lastname,firstname,age,address,phoneNumber,email,password);
         this.projects = projects;
-        this.userId = userId;
-        this.lastname = lastname;
-        this.firstname = firstname;
-        this.age = age;
-        this.address = address;
-        this.email = email;
-        this.password = password;
+
     }
 
-    public List<Project> getProjects() {
-        return projects;
+    public static Contractor of(Id userId, String lastname, String firstname, int age, Address address, String phoneNumber, String email, String password,List<Project> projects){
+        return new Contractor(userId,lastname,firstname,age,address,phoneNumber,email,password,projects);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        Contractor that = (Contractor) o;
+        return Objects.equals(projects, that.projects);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), projects);
     }
 
     @Override

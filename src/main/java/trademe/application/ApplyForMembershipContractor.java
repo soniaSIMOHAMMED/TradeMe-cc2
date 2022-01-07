@@ -3,8 +3,8 @@ package trademe.application;
 import trademe.domain.Contractor;
 import trademe.domain.User;
 
-public final class ApplyForMembershipContractor implements ApplyForMembership{
-    private boolean isAllowed;
+public final class ApplyForMembershipContractor /*implements ApplyForMembership*/{
+  /*  private boolean isAllowed;
     private User user;
 
     public ApplyForMembershipContractor(User user) {
@@ -21,5 +21,5 @@ public final class ApplyForMembershipContractor implements ApplyForMembership{
         }else{
             System.out.println("Sorry! something went wrong with your application ! " );
         }
-    }
+    }*/
 }

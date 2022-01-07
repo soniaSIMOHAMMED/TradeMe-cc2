@@ -2,44 +2,33 @@ package trademe.domain;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Objects;
 
-public final class Tradesman {
+public final class Tradesman extends User{
 
-    private final String trade;
+    private final Trade trade;
     private List<String> skills;
     private HashMap<String, List<String>> disponibility;
     private int dailyRate;
-    private Id userId;
-    private  String lastname;
-    private  String firstname;
-    private  int age;
-    private Address address;
-    private  String email;
-    private String password;
 
 
-    public Tradesman(String trade, List<String> skills, HashMap<String, List<String>> disponibility, int dailyRate, Id userId, String lastname, String firstname, int age, Address address, String email, String password) {
+
+    public Tradesman(Id userId, String lastname, String firstname, int age, Address address, String phoneNumber, String email, String password, Trade trade, List<String> skills, HashMap<String, List<String>> disponibility, int dailyRate) {
+        super(userId,lastname,firstname,age,address,phoneNumber,email,password);
         this.trade = trade;
         this.skills = skills;
         this.disponibility = disponibility;
         this.dailyRate = dailyRate;
-        this.userId = userId;
-        this.lastname = lastname;
-        this.firstname = firstname;
-        this.age = age;
-        this.address = address;
-        this.email = email;
-        this.password = password;
-    }
-
-    public Tradesman(Id userId,String trade) {
-        this.userId = userId;
-        this.trade = trade;
 
     }
 
+    public static Tradesman of(Id userId, String lastname, String firstname, int age, Address address, String phoneNumber, String email, String password,Trade trade, List<String> skills, HashMap<String, List<String>> disponibility, int dailyRate){
+        return new Tradesman(userId,lastname,firstname,age,address,phoneNumber,email,password,trade,skills,disponibility,dailyRate);
+    }
 
-    public String getTrade() {
+
+    @Override
+    public Trade getTrade() {
         return trade;
     }
 
@@ -53,6 +42,20 @@ public final class Tradesman {
 
     public List<String> getSkills() {
         return skills;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        Tradesman tradesman = (Tradesman) o;
+        return dailyRate == tradesman.dailyRate && trade == tradesman.trade && Objects.equals(skills, tradesman.skills) && Objects.equals(disponibility, tradesman.disponibility);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), trade, skills, disponibility, dailyRate);
     }
 
     @Override

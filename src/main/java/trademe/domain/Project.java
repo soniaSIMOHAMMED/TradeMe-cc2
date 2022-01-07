@@ -21,6 +21,10 @@ public final class Project {
         this.periodOfEngagement = periodOfEngagement;
     }
 
+    public static Project of(Id projectId, List<String> requiredSkills, List<Object> requiredTrades, Address address, int dailyRate, int periodOfEngagement){
+        return new Project(projectId,requiredSkills,requiredTrades,address,dailyRate,periodOfEngagement);
+    }
+
     public Id getProjectId() {
         return projectId;
     }

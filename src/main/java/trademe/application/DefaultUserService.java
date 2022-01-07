@@ -49,6 +49,9 @@ public final class DefaultUserService implements UserService {
         this.userRepository.addUser(user);
     }
 
+    @Override
+    public boolean checkIdentity(Id userId, String email, String password){return this.userRepository.checkIdentity(userId,email,password);}
+
 
 
 }

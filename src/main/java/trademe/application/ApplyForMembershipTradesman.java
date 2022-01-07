@@ -5,8 +5,8 @@ import trademe.domain.Trade;
 import trademe.domain.Tradesman;
 import trademe.domain.User;
 
-public final class ApplyForMembershipTradesman implements ApplyForMembership{
-    private boolean isAllowed;
+public final class ApplyForMembershipTradesman /*implements ApplyForMembership*/{
+    /*private boolean isAllowed;
     private User user;
 
     public ApplyForMembershipTradesman(User user) {
@@ -24,5 +24,5 @@ public final class ApplyForMembershipTradesman implements ApplyForMembership{
         }else{
             System.out.println("Sorry! something went wrong with your application ! " );
         }
-    }
+    }*/
 }

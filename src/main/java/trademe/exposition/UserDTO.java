@@ -14,9 +14,10 @@ public final class UserDTO {
     public  String firstname;
     public  int age;
     public  AddressDTO address;
+    public  String phoneNumber;
     public  String email;
     public  String password;
-    public PaymentMethodDTO payment;
+    public  PaymentMethodDTO payment;
 
     public void setLastname(String lastname) {
         this.lastname = lastname;
@@ -59,8 +60,20 @@ public final class UserDTO {
         return this.address;
     }
 
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
     public void changeAddress(AddressDTO address) {
         this.address = address;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getPassword() {
+        return password;
     }
 
     @Override
@@ -71,11 +84,10 @@ public final class UserDTO {
                 ", firstname='" + firstname + '\'' +
                 ", age=" + age +
                 ", address=" + address +
+                ", phoneNumber='" + phoneNumber + '\'' +
                 ", email='" + email + '\'' +
-                ", password='" + password + '\'' +
                 '}';
     }
-
 
     public void changePaymentMethod(PaymentMethodDTO payment) {
         this.payment=payment;

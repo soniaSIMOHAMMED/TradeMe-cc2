@@ -17,6 +17,7 @@ public final class InMemoryUserRepository implements UserRepository {
     private final AtomicInteger counter = new AtomicInteger(0);
     private final Map<Id, UserDTO> data = new ConcurrentHashMap<>();
 
+
     @Override
     public void save(UserDTO user) {data.put(user.getId(), user);}
 
@@ -60,6 +61,13 @@ public final class InMemoryUserRepository implements UserRepository {
 
     @Override
     public void pay(PaymentMethodDTO payment, double amount) {
+
+    }
+
+    @Override
+    public boolean checkIdentity(Id userId, String email, String password){
+
+        return data.containsKey(userId) && data.get(userId).getEmail().equals(email) && data.get(userId).getPassword().equals(password);
 
     }
 

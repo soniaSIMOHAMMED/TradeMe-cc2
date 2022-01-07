@@ -4,7 +4,7 @@ import java.util.Objects;
 
 public final class Id {
 
-    private int value;
+    private final int value;
 
     public Id(int value) {
         this.value = value;

@@ -40,6 +40,12 @@ public class User {
         this.trade = trade;
     }
 
+    public User (Id userId, String firstname, String lastname){
+        this.userId = userId;
+        this.firstname=firstname;
+        this.lastname=lastname;
+    }
+
 
     public static User of(Id id, String lastname, String firstname, int age, Address address, String phoneNumber, String email, String password){
         return new User(id,lastname,firstname,age,address, phoneNumber, email,password);

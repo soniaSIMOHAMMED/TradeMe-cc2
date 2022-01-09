@@ -71,18 +71,11 @@ public class LogIn{
         UserRepository userRepository = new InMemoryUserRepository();
         UserService userService = new DefaultUserService(userRepository);
 
-        LogIn logIn = new LogIn(userService,userRepository);
-
-        logIn.logIn();
+        LogIn userLogIn = new LogIn(userService,userRepository);
+        userLogIn.logIn();
 
 
     }
-
-
-
-
-
-
 
 
 }

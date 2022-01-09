@@ -3,7 +3,6 @@ package trademe.application;
 import trademe.domain.*;
 import trademe.exposition.AddressDTO;
 import trademe.exposition.UserDTO;
-import trademe.infrastructure.InMemoryUserRepository;
 import trademe.kernel.InvalidInputException;
 
 import java.util.ArrayList;
@@ -65,13 +64,11 @@ public final class Subscription {
         addressDTO.setStreet(street);
 
         System.out.println("Enter city name => ");
-        String city = scan.next();
-        addressDTO.setCity(city);
+        String city = scan.nextLine();
+        addressDTO.setCity(""+city);
 
         Address address = Address.of(number,street,city);
-        if(VerifyApplication.checkAddress(address)){
-            invalidInput.add(new InvalidInputException("Please insert a valid address !"));
-        }
+
 
         System.out.println("Enter your phone number => ");
         String phone = scan.next();
@@ -93,7 +90,9 @@ public final class Subscription {
             invalidInput.add(new InvalidInputException("Password should not be empty !"));
         }
 
-        System.out.println("Type C for Contractor or T for Tradesman => ");
+        // pour une future utilisation
+
+      /*  System.out.println("Type C for Contractor or T for Tradesman => ");
         String userType = scan.next();
 
         if(userType == "T"){
@@ -115,7 +114,7 @@ public final class Subscription {
              dailyRate = scan.nextInt();
 
 
-        }
+        }*/
 
 
         scan.close();
@@ -134,13 +133,15 @@ public final class Subscription {
             System.out.println("User"+user.toString()+" ! Congratulation you've been successfully subscribed ! ");
 
 
-            if(userType == "C"){
+            // pour une future utilisation
+
+          /*  if(userType == "C"){
                 User contractor = Contractor.of(userId,lastname,firstname,age,address,phone,email,password,projects);
             }
 
             if(userType == "T"){
                 User tradesmane = Tradesman.of(userId,lastname,firstname,age,address,phone,email,password,trade,skills,disponibility,dailyRate);
-            }
+            }*/
 
 
 
@@ -159,23 +160,7 @@ public final class Subscription {
 
 
 
-
-
-
     }
-
-    public static void main(String[] args) {
-
-        UserRepository userRepository = new InMemoryUserRepository();
-        UserService userService = new DefaultUserService(userRepository);
-
-        Subscription subscription = new Subscription(userService,userRepository);
-
-        subscription.subscribe();
-
-
-    }
-
 
 
 }
